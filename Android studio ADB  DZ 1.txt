@@ -1,0 +1,40 @@
+P.S.
+В командной строке переходить из папки в папку команда dir (ps ls -la)
+backup смартфона:
+1) adb backup -apk -shared -all -f указать путь куда сохранить backup
+2) adb restore
+
+1. Отобразить подключённый девайс в консоли.
+Перевести смартфон в режим разработчика (на 11 anroid: настройки - номер сборки - на номере сборки нажать 7 раз - параметры разработчика - вкл )
+Установить на ПК ADB. Далее, через программу Power Shell  либо командную строку задать команду adb devices
+Далее работаю через командную строку
+
+
+ 2. Вывести адрес приложения todolist в системе Android  
+adb shell pm list "packages | grep todolist" 
+
+package:com.android.todolist
+
+
+ 3. Установить .apk файл приложениия todolist на телефон с компьютера через  ADB
+adb install todolist.apk
+либо прописав через путь path/
+
+
+ 4. Сделать скриншот запущенного приложения todolist и сразу скопировать на компьютер в одной команде.
+adb shell screencap /sdcard/screen.png просто скриншот
+
+adb pull /sdcard/screen.png screen.png перенос скриншот на ПК
+
+ 5. Вывести в консоль логи приложения todolist
+adb logcat -d |findstr -rnw "todolist"
+
+
+ 6. Скопировать логи приложения todolist на компьютер.
+adb logcat -d > file.log
+
+
+ 7. Удалить приложение todolist с телефона через ADB 
+adb uninstall com.android.todolist
+
+
